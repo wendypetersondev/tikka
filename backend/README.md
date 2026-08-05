@@ -271,6 +271,9 @@ INDEXER_URL=https://your-indexer.example.com
 
 ## Environment Variables
 
+> Full cross-service reference: **[docs/env/README.md — Backend section](../docs/env/README.md#1-backend-port-3001)**
+> Authoritative schema: `src/config/env.schema.ts` and `src/config/ENV_VARS.md`.
+
 Copy `.env.example` to `.env` and fill in the required values before starting the server.
 
 ```bash

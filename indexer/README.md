@@ -17,19 +17,27 @@ Subscribes to Stellar ledger events, decodes Tikka contract events, and writes s
 
 ### Environment Variables
 
-Create a `.env.local` file in this directory (the file is gitignored):
+> Full reference: **[docs/env/README.md — Indexer section](../docs/env/README.md#2-indexer-port-3002)**
+
+Create an `indexer/.env.local` file (gitignored). Start from the example:
+
+```bash
+cp .env.example .env.local
+```
+
+Minimum required vars:
 
 ```dotenv
-# Option A — single connection string (preferred)
+# Required — primary database connection
 DATABASE_URL=postgres://postgres:postgres@localhost:5432/tikka_indexer
 
-# Option B — individual vars (used if DATABASE_URL is not set)
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=postgres
-DB_DATABASE=tikka_indexer
+# Required — contract to index
+TIKKA_CONTRACT_ID=C...
+```
 
+Common optional overrides:
+
+```dotenv
 # Set to "true" on Supabase / Railway (requires SSL)
 DB_SSL=false
 
@@ -48,6 +56,8 @@ LAG_THRESHOLD=100
 # Health: lag above this many ledgers triggers critical alerts and notifications (default: 50)
 INDEXER_LAG_ALERT_THRESHOLD_LEDGERS=50
 ```
+
+See `.env.example` for the complete list of variables with descriptions.
 
 ## Slow query observability
 

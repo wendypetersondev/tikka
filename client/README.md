@@ -272,7 +272,9 @@ npm install
 cp .env.example .env
 ```
 
-Then edit `.env` with your actual values. See [DEVELOPMENT.md](DEVELOPMENT.md#environment-configuration) for detailed setup instructions.
+Then edit `.env` with your actual values.
+
+> Full variable reference: **[docs/env/README.md — Client section](../docs/env/README.md#4-client-vite-port-5173)**
 
 **Quick Start Configuration:**
 

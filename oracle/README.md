@@ -270,6 +270,30 @@ docker run -d -p 6379:6379 redis:7-alpine
 
 ## Configuration
 
+> Full environment variable reference: **[docs/env/README.md — Oracle section](../docs/env/README.md#3-oracle-port-3003)**
+
+Copy `.env.example` to `.env.local` and fill in required values:
+
+```bash
+cp .env.example .env.local
+```
+
+Minimum required variables:
+
+```dotenv
+# Stellar network
+SOROBAN_RPC_URL=https://soroban-testnet.stellar.org
+RAFFLE_CONTRACT_ID=C...
+
+# Key provider (choose one)
+KEY_PROVIDER=env
+ORACLE_SECRET_KEY=S...     # or ORACLE_PRIVATE_KEY=S...
+
+# Redis (for Bull queue)
+REDIS_HOST=localhost
+REDIS_PORT=6379
+```
+
 The service requires the following environment variables for queue operations:
 
 - `REDIS_HOST`: Redis server host (default: `localhost`)
